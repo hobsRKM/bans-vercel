@@ -42,7 +42,7 @@
                                 @endforeach
                             </select>
                             <label for="serverSelect"
-                                   class="serverSelectLabel form-label">{{ __('Select Server') }}</label>
+                                   class="serverSelectLabel form-label">{{ __('admins.selectServers') }}</label>
                         </div>
                         <div class="table-responsive">
                             <table class="table table-hover table-borderless" id="ranksList" style="width:100%">
@@ -75,17 +75,16 @@
                 @vite(['resources/js/ranks/ranks.ts'])
                 <script>
                     const ranksListUrl = '{!! env('VITE_SITE_DIR') !!}/list/ranks';
-                    window.translations = {
-                        lastSeen: "{{ __('dashboard.lastSeen') }}"
-                    };
-                </script>
-                <script>
                     $(document).ready(function () {
                         $('#serverSelect').change(function () {
                             const serverId = $(this).val();
                             window.location.href = '{{ url()->current() }}' + '?server_id=' + serverId;
                         });
                     });
+                    window.translations = {
+                        searchByPlayernameAndSteamid: "{{ __('admins.searchByPlayernameAndSteamid') }}",
+                        lastSeen: "{{ __('dashboard.lastSeen') }}"
+                    };
                 </script>
                 </x-slot>
 </x-base-layout>

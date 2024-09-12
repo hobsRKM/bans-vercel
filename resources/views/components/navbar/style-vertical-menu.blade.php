@@ -42,6 +42,7 @@
                         <option {{ app()->getLocale() == 'uk' ? 'selected' : '' }} value="uk" data-image="{{ Vite::asset('resources/images/1x1/uk.svg') }}">українська</option>
                         <option {{ app()->getLocale() == 'hu' ? 'selected' : '' }} value="hu" data-image="{{ Vite::asset('resources/images/1x1/hu.svg') }}">Magyar</option>
                         <option {{ app()->getLocale() == 'se' ? 'selected' : '' }} value="se" data-image="{{ Vite::asset('resources/images/1x1/se.svg') }}">Svenska</option>
+                        <option {{ app()->getLocale() == 'bg' ? 'selected' : '' }} value="bg" data-image="{{ Vite::asset('resources/images/1x1/bg.svg') }}">Български</option>
                     </select>
                 </li>
                 <li class="nav-item nav-link theme-toggle-item">
@@ -68,6 +69,7 @@
                                 <div class="media-body">
                                     <h5>{{Auth::user()?->name ? : __('admins.guest') }}</h5>
                                     <p>{{Auth::user()?->steam_id ? :  __('admins.user') }}</p>
+                                    {{session('rank_image')}}
                                 </div>
                             </div>
                         </div>
